@@ -1,7 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login_page_bloc/login_bloc/login_bloc_bloc.dart';
+import 'package:login_page_bloc/utils/core/local_keys.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -11,8 +12,8 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Login Page",
+        title: Text(
+          "login_title".tr(),
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
@@ -36,7 +37,7 @@ class LoginPage extends StatelessWidget {
                     },
                     validator: validateEmail,
                     decoration: InputDecoration(
-                        hintText: "Email",
+                        hintText: "email".tr(),
                         hintStyle: const TextStyle(
                           color: Colors.black,
                         ),
@@ -62,7 +63,7 @@ class LoginPage extends StatelessWidget {
                     },
                     validator: validatePassword,
                     decoration: InputDecoration(
-                      hintText: "Password",
+                      hintText: "password".tr(),
                       hintStyle: const TextStyle(
                         color: Colors.black,
                       ),
@@ -111,7 +112,8 @@ class LoginPage extends StatelessWidget {
                                   onPressed: () {
                                     // Handle undo action
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(content: Text('Login Success')),
+                                      const SnackBar(
+                                          content: Text('Login Success')),
                                     );
                                   },
                                 ),
@@ -127,7 +129,8 @@ class LoginPage extends StatelessWidget {
                                   onPressed: () {
                                     // Handle undo action
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(content: Text('Login Failure')),
+                                      const SnackBar(
+                                          content: Text('Login Failure')),
                                     );
                                   },
                                 ),
@@ -136,8 +139,8 @@ class LoginPage extends StatelessWidget {
                           }
                         }
                       },
-                      child: const Text(
-                        "Login",
+                      child: Text(
+                        "login_title".tr(),
                         style: TextStyle(color: Colors.white),
                       ))
                 ],
